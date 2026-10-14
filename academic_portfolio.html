@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ปาริชาติ คุ้มชูศรี - Academic Portfolio</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                        },
+                        accent: {
+                            50: '#f0f9ff',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Kanit', 'Prompt', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 glass-card transition-all duration-300 shadow-sm border-b border-slate-200/50 dark:border-slate-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-tight text-emerald-600 dark:text-emerald-400 flex items-center gap-2">
+                <i class="fa-solid fa-graduation-cap text-2xl"></i>
+                <span>Parichat.K</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="#about" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">เกี่ยวกับฉัน</a>
+                <a href="#education" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">การศึกษา</a>
+                <a href="#skills" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">ทักษะ & งานอดิเรก</a>
+                <a href="#contact" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">การติดต่อ</a>
+                <a href="#github-guide" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-semibold">
+                    <i class="fa-brands fa-github"></i> Guide GitHub Pages
+                </a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <!-- Dark Mode Toggle Button -->
+                <button id="theme-toggle" type="button" aria-label="Toggle dark mode" class="p-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl focus:outline-none transition-all">
+                    <i id="theme-toggle-dark-icon" class="hidden fa-solid fa-moon text-lg"></i>
+                    <i id="theme-toggle-light-icon" class="hidden fa-solid fa-sun text-lg text-amber-400"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" type="button" aria-label="Toggle mobile menu" class="md:hidden p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2 bg-white/95 dark:bg-slate-900/95 border-b border-slate-200 dark:border-slate-800">
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-slate-800">เกี่ยวกับฉัน</a>
+            <a href="#education" class="mobile-link block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-slate-800">การศึกษา</a>
+            <a href="#skills" class="mobile-link block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-slate-800">ทักษะ & งานอดิเรก</a>
+            <a href="#contact" class="mobile-link block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-slate-800">การติดต่อ</a>
+            <a href="#github-guide" class="mobile-link block px-3 py-2 rounded-lg text-emerald-600 dark:text-emerald-400 font-medium hover:bg-emerald-50 dark:hover:bg-slate-800">
+                <i class="fa-brands fa-github mr-1"></i> Guide GitHub Pages
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+
+        <!-- Hero / Section: About Me -->
+        <section id="about" class="pt-6">
+            <div class="glass-card rounded-3xl p-8 md:p-12 shadow-xl border border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden">
+                <!-- Background Accent Blur -->
+                <div class="absolute -top-10 -right-10 w-64 h-64 bg-emerald-400/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-sky-400/20 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 relative z-10">
+                    <!-- Profile Avatar -->
+                    <div class="relative group">
+                        <div class="w-40 h-40 md:w-48 md:h-48 rounded-2xl overflow-hidden shadow-2xl ring-4 ring-emerald-500/30 group-hover:ring-emerald-500 transition-all duration-300 bg-slate-200 dark:bg-slate-700">
+                            <img src="https://placehold.co/400x400/10b981/ffffff?text=Parichat" 
+                                 onerror="this.src='https://placehold.co/400x400/0284c7/ffffff?text=PK'" 
+                                 alt="ปาริชาติ คุ้มชูศรี" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-emerald-500 text-white text-xs px-2.5 py-1 rounded-full font-medium shadow-md flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> นักศึกษา
+                        </span>
+                    </div>
+
+                    <!-- Personal Info Details -->
+                    <div class="flex-1 text-center md:text-left space-y-4">
+                        <div>
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 text-xs font-semibold mb-3">
+                                <i class="fa-solid fa-user-graduate"></i> Academic Profile
+                            </div>
+                            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                                ปาริชาติ คุ้มชูศรี
+                            </h1>
+                            <p class="text-lg text-emerald-600 dark:text-emerald-400 font-medium mt-1">
+                                นักศึกษาสาขาวิชาสาธารณสุขชุมชน
+                            </p>
+                        </div>
+
+                        <!-- Bio Info Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-600 dark:text-slate-300 pt-2">
+                            <div class="flex items-center justify-center md:justify-start gap-2 bg-slate-100/80 dark:bg-slate-800/60 p-2.5 rounded-xl">
+                                <i class="fa-regular fa-calendar-days text-emerald-500 text-base"></i>
+                                <span>เกิด: 22 กันยายน 2546</span>
+                            </div>
+                            <div class="flex items-center justify-center md:justify-start gap-2 bg-slate-100/80 dark:bg-slate-800/60 p-2.5 rounded-xl">
+                                <i class="fa-solid fa-heart text-rose-500 text-base"></i>
+                                <span>นิสัย: ขยัน รับผิดชอบ ชอบช่วยเหลือ</span>
+                            </div>
+                            <div class="flex items-start justify-center md:justify-start gap-2 bg-slate-100/80 dark:bg-slate-800/60 p-2.5 rounded-xl sm:col-span-2">
+                                <i class="fa-solid fa-location-dot text-emerald-500 text-base mt-0.5"></i>
+                                <span class="text-left">ภูมิลำเนา: ต.ท่าบ่อ อ.ท่าบ่อ จ.หนองคาย 43110</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 flex flex-wrap justify-center md:justify-start gap-3">
+                            <a href="#contact" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-xl shadow-lg shadow-emerald-600/20 transition-all flex items-center gap-2">
+                                <i class="fa-solid fa-envelope"></i> ติดต่อฉัน
+                            </a>
+                            <a href="#education" class="px-5 py-2.5 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-medium rounded-xl transition-all flex items-center gap-2">
+                                <i class="fa-solid fa-book-open"></i> ดูประวัติการศึกษา
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Education -->
+        <section id="education" class="space-y-6">
+            <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
+                <div class="p-2.5 bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 rounded-xl">
+                    <i class="fa-solid fa-graduation-cap text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">ประวัติการศึกษา</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Education Background</p>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-6 sm:p-8 shadow-md border border-slate-200/80 dark:border-slate-800/80 relative">
+                <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                    <div class="space-y-2">
+                        <div class="inline-block px-3 py-1 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-full text-xs font-semibold">
+                            กำลังศึกษาอยู่ (Current Student)
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                            วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น
+                        </h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 font-medium">
+                            คณะสาธารณสุขศาสตร์และสหเวชศาสตร์ สถาบันพระบรมราชชนก
+                        </p>
+                        <div class="pt-2">
+                            <p class="text-emerald-600 dark:text-emerald-400 font-semibold">
+                                <i class="fa-solid fa-award mr-1"></i> สาขาวิชาสาธารณสุขชุมชน
+                            </p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                                หลักสูตรสาธารณสุขศาสตรบัณฑิต (ส.บ.)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="shrink-0 flex sm:flex-col items-center sm:items-end justify-between">
+                        <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg">
+                            ขอนแก่น, ประเทศไทย
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Skills & Hobbies -->
+        <section id="skills" class="space-y-6">
+            <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
+                <div class="p-2.5 bg-sky-100 dark:bg-sky-950 text-sky-600 dark:text-sky-400 rounded-xl">
+                    <i class="fa-solid fa-star text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">ทักษะ & งานอดิเรก</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Skills, Talents & Hobbies</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- ความสามารถพิเศษ -->
+                <div class="glass-card rounded-2xl p-6 shadow-md border border-slate-200/80 dark:border-slate-800/80 space-y-4">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-bolt text-amber-500"></i> ความสามารถพิเศษ
+                    </h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="p-3 bg-slate-100/70 dark:bg-slate-800/50 rounded-xl flex items-center gap-3">
+                            <i class="fa-solid fa-book-bookmark text-emerald-500 text-lg"></i>
+                            <div>
+                                <p class="text-sm font-semibold">ทักษะทางวิชาการ</p>
+                                <p class="text-xs text-slate-500">การเรียนรู้และวิจัย</p>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-slate-100/70 dark:bg-slate-800/50 rounded-xl flex items-center gap-3">
+                            <i class="fa-solid fa-volleyball text-sky-500 text-lg"></i>
+                            <div>
+                                <p class="text-sm font-semibold">ทักษะด้านกีฬา</p>
+                                <p class="text-xs text-slate-500">ออกกำลังกาย & ทีม</p>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-slate-100/70 dark:bg-slate-800/50 rounded-xl flex items-center gap-3">
+                            <i class="fa-solid fa-music text-purple-500 text-lg"></i>
+                            <div>
+                                <p class="text-sm font-semibold">ทักษะด้านดนตรี</p>
+                                <p class="text-xs text-slate-500">สุนทรียภาพทางเสียง</p>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-slate-100/70 dark:bg-slate-800/50 rounded-xl flex items-center gap-3">
+                            <i class="fa-solid fa-palette text-rose-500 text-lg"></i>
+                            <div>
+                                <p class="text-sm font-semibold">ทักษะศิลปะ</p>
+                                <p class="text-xs text-slate-500">งานสร้างสรรค์</p>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-slate-100/70 dark:bg-slate-800/50 rounded-xl flex items-center gap-3 col-span-2">
+                            <i class="fa-solid fa-laptop-code text-indigo-500 text-lg"></i>
+                            <div>
+                                <p class="text-sm font-semibold">ทักษะเชิงเทคนิค</p>
+                                <p class="text-xs text-slate-500">เทคโนโลยีและการประยุกต์ใช้งาน</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- งานอดิเรก -->
+                <div class="glass-card rounded-2xl p-6 shadow-md border border-slate-200/80 dark:border-slate-800/80 space-y-4">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-icons text-sky-500"></i> งานอดิเรก (Hobbies)
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 p-2.5 rounded-xl bg-slate-100/50 dark:bg-slate-800/40">
+                            <span class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-book-open"></i>
+                            </span>
+                            <span class="text-sm font-medium">อ่านหนังสือค้นคว้าความรู้</span>
+                        </li>
+                        <li class="flex items-center gap-3 p-2.5 rounded-xl bg-slate-100/50 dark:bg-slate-800/40">
+                            <span class="w-8 h-8 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-person-running"></i>
+                            </span>
+                            <span class="text-sm font-medium">เล่นกีฬาเพื่อสุขภาพ</span>
+                        </li>
+                        <li class="flex items-center gap-3 p-2.5 rounded-xl bg-slate-100/50 dark:bg-slate-800/40">
+                            <span class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-600 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-utensils"></i>
+                            </span>
+                            <span class="text-sm font-medium">ทำอาหารสร้างสรรค์เมนู</span>
+                        </li>
+                        <li class="flex items-center gap-3 p-2.5 rounded-xl bg-slate-100/50 dark:bg-slate-800/40">
+                            <span class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-600 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-pen-nib"></i>
+                            </span>
+                            <span class="text-sm font-medium">เขียนบทความ ถ่ายทอดความคิด</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Contact -->
+        <section id="contact" class="space-y-6">
+            <div class="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
+                <div class="p-2.5 bg-rose-100 dark:bg-rose-950 text-rose-600 dark:text-rose-400 rounded-xl">
+                    <i class="fa-solid fa-address-book text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">ช่องทางการติดต่อ</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Get in Touch</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="glass-card p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">เบอร์โทรศัพท์</p>
+                        <p class="text-base font-semibold text-slate-800 dark:text-slate-200">092-624-3950</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">ที่อยู่ / ภูมิลำเนา</p>
+                        <p class="text-sm font-semibold text-slate-800 dark:text-slate-200">อ.ท่าบ่อ ต.ท่าบ่อ จ.หนองคาย 43110</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: GitHub Pages Guide -->
+        <section id="github-guide" class="space-y-6 pt-4">
+            <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-700 relative overflow-hidden">
+                <div class="flex items-center gap-3 mb-6">
+                    <i class="fa-brands fa-github text-3xl text-emerald-400"></i>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold">คู่มือการอัปโหลดขึ้น GitHub Pages</h2>
+                        <p class="text-xs text-slate-400">ขั้นตอนง่ายๆ ในการสร้างเว็บไซต์ออนไลน์ส่วนตัวฟรี</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/80 space-y-2">
+                        <div class="w-7 h-7 rounded-full bg-emerald-500 text-slate-900 font-bold flex items-center justify-center text-xs">1</div>
+                        <h3 class="font-semibold text-emerald-300">สร้าง Repository</h3>
+                        <p class="text-xs text-slate-300">เข้า GitHub.com แล้วสร้าง Repository ใหม่ ตั้งชื่อเป็น <code class="bg-slate-900 px-1.5 py-0.5 rounded text-emerald-400">portfolio</code> และตั้งเป็น Public</p>
+                    </div>
+
+                    <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/80 space-y-2">
+                        <div class="w-7 h-7 rounded-full bg-emerald-500 text-slate-900 font-bold flex items-center justify-center text-xs">2</div>
+                        <h3 class="font-semibold text-emerald-300">อัปโหลดไฟล์</h3>
+                        <p class="text-xs text-slate-300">บันทึกโค้ดหน้านี้เป็นชื่อ <code class="bg-slate-900 px-1.5 py-0.5 rounded text-emerald-400">index.html</code> จากนั้นกด Upload files เข้าไปที่ Root directory แล้วกด Commit</p>
+                    </div>
+
+                    <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/80 space-y-2">
+                        <div class="w-7 h-7 rounded-full bg-emerald-500 text-slate-900 font-bold flex items-center justify-center text-xs">3</div>
+                        <h3 class="font-semibold text-emerald-300">เปิดใช้งาน Pages</h3>
+                        <p class="text-xs text-slate-300">ไปที่ <span class="text-amber-300">Settings > Pages</span> เลือก Source เป็น Branch <code class="bg-slate-900 px-1.5 py-0.5 rounded text-emerald-400">main / root</code> แล้วกด Save รอ 1-2 นาทีจะเปิดดูเว็บได้ทันที!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 py-6 mt-12">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-2">
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+                © Academic Portfolio — <span class="font-semibold text-emerald-600 dark:text-emerald-400">ปาริชาติ คุ้มชูศรี</span>
+            </p>
+            <p class="text-xs text-slate-400 dark:text-slate-500">
+                วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น สถาบันพระบรมราชชนก
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
